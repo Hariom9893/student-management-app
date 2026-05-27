@@ -166,8 +166,13 @@ def create_app(config_class=Config):
 # This block only runs when you execute: python app.py
 # When imported (e.g., by tests or a WSGI server), it won't run
 
+app = create_app()
+
 if __name__ == "__main__":
-    app = create_app()
+    print("\n" + "="*55)
+    print("  Student Management System API")
+    print("="*55)
+    app.run(debug=True, host="0.0.0.0", port=5000)
 
     print("\n" + "="*55)
     print("  🎓 Student Management System API")

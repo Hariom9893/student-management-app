@@ -29,7 +29,7 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 
 from models import db, Student
-from utils.helpers import (
+from helpers import ( (
     success_response,
     error_response,
     validate_required_fields,

@@ -151,8 +151,8 @@ def create_app(config_class=Config):
     # It WON'T delete existing tables — safe to run repeatedly
 
     with app.app_context():
-    db.create_all()
-    print("✅ Database tables created")
+        db.create_all()
+        print("✅ Database tables created")
 
     return app
 

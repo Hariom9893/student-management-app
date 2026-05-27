@@ -151,12 +151,8 @@ def create_app(config_class=Config):
     # It WON'T delete existing tables — safe to run repeatedly
 
     with app.app_context():
-        # Make sure the database directory exists
-        db_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), "database")
-        os.makedirs(db_dir, exist_ok=True)
-
-        db.create_all()
-        print("✅ Database tables created (or already exist)")
+    db.create_all()
+    print("✅ Database tables created")
 
     return app
 

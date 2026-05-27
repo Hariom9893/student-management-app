@@ -27,9 +27,8 @@ from models import db
 
 # ─── Import Blueprints ────────────────────────────────────────────────────────
 # Each blueprint is a group of related routes
-from routes.auth import auth_bp
-from routes.students import students_bp
-
+from auth import auth_bp
+from students import students_bp
 
 def create_app(config_class=Config):
     """

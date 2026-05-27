@@ -36,10 +36,13 @@ class Config:
     # sqlite:///  means "use a local file"
     # We store the .db file inside the /database/ folder
     # -----------------------------------------------------------------------
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL",
-        f"sqlite:///{os.path.join(BASE_DIR, 'database', 'database.db')}"
-    )
+    db_url = os.environ.get("DATABASE_URL", "sqlite:///database.db")
+
+    # Render gives 'postgres://' but SQLAlchemy needs 'postgresql://'
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = db_url
 
     # Disable SQLAlchemy's change-tracking system (saves memory, not needed here)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
